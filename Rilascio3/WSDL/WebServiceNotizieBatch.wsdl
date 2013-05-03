@@ -9,17 +9,17 @@
             <xs:element name="trasmettiNotizia">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="notizia" nillable="true" type="ax25:Notizia"/>
-                        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string"/>
-                        <xs:element minOccurs="0" name="pass" nillable="true" type="xs:string"/>
+                        <xs:element name="notizia" type="ax25:Notizia"/>
+                        <xs:element name="username" type="xs:string"/>
+                        <xs:element name="user" type="xs:string"/>
+                        <xs:element name="pass" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
             <xs:element name="trasmettiNotiziaResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="return" type="xs:int"/>
+                        <xs:element name="return" type="xs:int"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -27,18 +27,18 @@
         <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://entity.uiip/xsd">
             <xs:complexType name="Notizia">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="autore" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="datacreazione" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="datatrasmissione" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="id_N" type="xs:int"/>
-                    <xs:element minOccurs="0" name="lock_n" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="lunghezzatesto" type="xs:int"/>
-                    <xs:element minOccurs="0" name="sottotitolo" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="stato" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="testo" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="titolo" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="ultimoAccesso" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="ultimodigitatore" nillable="true" type="xs:string"/>
+                    <xs:element name="autore" nillable="true" type="xs:string"/>
+                    <xs:element name="datacreazione" type="xs:string"/>
+                    <xs:element name="datatrasmissione" nillable="true" type="xs:string"/>
+                    <xs:element name="id_N" type="xs:int"/>
+                    <xs:element name="lock_n" type="xs:string"/>
+                    <xs:element name="lunghezzatesto" type="xs:int"/>
+                    <xs:element name="sottotitolo" nillable="true" type="xs:string"/>
+                    <xs:element name="stato" nillable="true" type="xs:string"/>
+                    <xs:element name="testo" nillable="true" type="xs:string"/>
+                    <xs:element name="titolo" nillable="true" type="xs:string"/>
+                    <xs:element name="ultimoAccesso" type="xs:string"/>
+                    <xs:element name="ultimodigitatore" type="xs:string"/>
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
