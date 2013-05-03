@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="Trasmitter">
+        <wb-resource deploy-path="/" source-path="/WebContent"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="BL.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/BL/BL">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="DAO.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/DAO/DAO">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="BLI.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/BLI/BLI">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="DTO.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/DTO/DTO">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="DAOI.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/DAOI/DAOI">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="Trasmitter"/>
+        <property name="java-output-path" value="/Trasmitter/build/classes"/>
+    </wb-module>
+</project-modules>
