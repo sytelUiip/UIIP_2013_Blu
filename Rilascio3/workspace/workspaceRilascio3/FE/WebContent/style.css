@@ -1,0 +1,361 @@
+html {background: #f0f0f0 url(images/htmlbg.jpg) repeat; width:100%; height:100%;}
+body {background: #f0f0f0 url(images/topbg.jpg) repeat-x; font-family :'DroidSansRegular', Verdana, Geneva, sans-serif; font-size:72%; color:#000;}
+.color tr:nth-child(even) {background:#F5FFFA}
+.color tr:nth-child(odd) {background:#87CEEB}
+.image{width:40px; position:relative;left:20%;}
+#wrap {width:1001px; margin:0 auto; padding-top:20px;}
+#sinistro{position:relative;width:205px;}
+#destro{position:relative;width:760px;}
+a, a:link, a:visited, a:active {color:#446f9e;}
+h1, h2, h3 {font-family: 'TeXGyreAdventor', Arial, sans-serif;}
+h4, h5 {font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;}
+nav, section, header, footer, article {display:block;}
+#mainnav h1 {float:left; padding:20px 0 0 25px; font: bold 3.2em 'TeXGyreAdventor', Arial, sans-serif; color:#446f9e; text-shadow:#fff 1px 1px 1px; text-transform:uppercase;}
+#mainnav h1 span {font-weight:normal!important; color:#191512!important;}
+#mainnav ul {/* float:right; */ width:550px; font:bold 1.6em 'TeXGyreAdventor', Arial, sans-serif; padding-top:25px;}
+#mainnav ul li {display:inline; text-shadow:#fff 1px 1px 1px;}
+#mainnav ul li a {/* text-decoration:none; */ display:block; float:left; margin:0 15px; padding-bottom:5px;}
+#homeheader {color:#5a5143; height:80px;}
+#homeheader h1{color:#000;}
+#userConnesso{position:relative;top:17px;left:73%;color:#446f9e;font-size:150%;}
+#logout{position:relative;top:17px;left:90%;font: bold 1.4em 'TeXGyreAdventor', Arial, sans-serif; color: #446f9e;}
+.legenda{position:relative;top:10%;left:35%;}
+.destro{position:relative;top:550px; right:0.5%;}
+.bunner{position:relative;left:10%;width:390px;heigth:70px;}
+#liste{position:relative;left:26%;}
+#insert{position:relative;left:17%;}
+#textlogo{position:relative;top:5%;}
+#imm_menu{position:relative;top:5%;}
+#menu h1 {float:left; padding:20px 0 0 25px; font: bold 3.2em 'TeXGyreAdventor', Arial, sans-serif; color: #446f9e; text-shadow:#fff 1px 1px 1px; text-transform:uppercase;}
+#menu h1 span {font-weight:normal!important; color:#191512!important;}
+#menu ul {/* float:right; */ width:550px; font:bold 1.6em 'TeXGyreAdventor', Arial, sans-serif; padding-top:25px;}
+/* #menu ul li {text-shadow:#fff 1px 1px 1px;} */
+/* #menu ul li a {text-decoration:none; display:block; float:left; margin:0 15px; padding-bottom:5px;} */
+.textmenu{color:#446f9e;text-align:center;font:bold 1.7em 'TeXGyreAdventor', Arial, sans-serif;position:absolute;left:5%;top:45%;}
+.textmenu span{color:#1c5f75;text-align:center;font:bold 2em 'TeXGyreAdventor', Arial, sans-serif;}
+.centro{position:relative; left:40%;top:60%;}
+.testoCentro{position:relative;left:37%;}
+.textmenu span ul{font: 10px 'TeXGyreAdventor', Arial, sans-serif;}
+.testmenu span ul li{font:10px 'TeXGyreAdventor', Arial, sans-serif;} 
+#messaggio{color:#1c5f75;text-align:center;font:bold 2em 'TeXGyreAdventor', Arial, sans-serif;position:relative;top:30%;left:2%;}
+#messaggio2{color:#1c5f75;text-align:center;font:bold 1.4em 'TeXGyreAdventor', Arial, sans-serif;position:relative;top:50%;left:5%;}
+.right{position:relative;left:34%}
+#homeheader h2 {display:block; width:450px; position:relative;left:25%; padding:50px 0 0 40px; color:#000; font:normal 1.4em 'DroidSansRegular', Verdana, Geneva, sans-serif; line-height:2em;color:#000;
+	text-shadow:#263E66 1px 1px 1px;}
+#homeheader h2 span {display:block; font:bold 1.6em 'TeXGyreAdventor', Arial, sans-serif!important; color:#000000; text-shadow:#f98465 1px 1px 1pxline-height:1em!important;margin-bottom:15px; }
+#homeheader h2 table {
+	display:block;
+	font:bold 1.5em 'TeXGyreAdventor', Arial, sans-serif!important;
+	color:#000;
+	text-shadow:#263E66 1px 1px 1px;
+	margin-bottom:15px;
+	position:absolute;
+	left:65px;
+	height: 227px;
+	width: 338px;
+}
+#homeheader h2 table tr td input{height:1.6em; font-family: 'TeXGyreAdventor', Arial, sans-serif;}
+
+#homeheader h2 table tr td input[type=submit]{height:2em; color:#000; font-size:+1;}
+#homeheader h2 table tr td input[type=reset]{height:2em; color:#000; font-size:+1;}
+#homeheader .messaggio{visibility:hidden;}
+#homeheader .headerimg {float:right; padding:55px 80px 0 0;}
+#page {width:962px; margin:auto; padding:0 20px;}
+#bottom {background:#504842 url(images/bottombg.jpg) repeat-x;width:960px;padding:30px 0; text-align:center;}
+/* footer { color:#666;position:absolute;top:600px; } */
+footer a, #bottom a, #credits a {color:#fff; text-decoration:none!important;}
+a:hover, #content a:hover {color:#0797C6; text-decoration:underline!important;}
+footer {background:#504842 url(images/bottombg.jpg) repeat-x; color:#446f9e;}
+.doNotDisplay {
+    display: none;
+}
+
+.smallCaps {
+    font-size: 110%;
+    font-variant: small-caps;
+}
+
+/* ##### Header ##### */
+
+/* .midHeader {
+    color: rgb( 39, 78, 144 );
+    background-color: #B22222;
+} */
+
+
+
+.subHeader a {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0;
+    padding: 0 0.75ex 0 0.5ex;
+}
+
+
+
+
+
+/* ##### Side Bar ##### */
+
+#side-bar {
+    width: 20em;
+    float: left;
+    clear: left;
+}
+
+#side-bar div {
+    border-bottom: 1px solid rgb( 153, 153, 153 );
+}
+
+.sideBarTitle {
+    font-weight: bold;
+    margin: 0 0 0.5em 2.5mm;
+    padding: 1em 0 0 0;
+}
+
+#side-bar ul {
+    list-style-type: none;
+    list-style-position: outside;
+    margin: 0;
+    padding: 0 0 1.1em 0;
+}
+
+#side-bar li {
+    margin: 0;
+    padding: 0.1ex 0; /* Circumvents a rendering bug (?) in MSIE 6.0 */
+}
+
+#side-bar a, .thisPage {
+    color: rgb( 0, 102, 204 );
+    background-color: transparent;
+    text-decoration: none;
+    margin: 0;
+    padding: 0.75em 1ex 0.75em 5mm;
+    display: block;
+}
+
+.thisPage {
+    color: black;
+    background-color: white;
+    padding-left: 4mm;
+    border-top: 1px solid rgb( 153, 153, 153 );
+    border-bottom: 1px solid rgb( 153, 153, 153 );
+}
+
+#side-bar a:hover {
+    color: white;
+    background-color: rgb( 100, 135, 220 );
+    text-decoration: none;
+}
+
+.sideBarText {
+    line-height: 1.5em;
+    margin: 0 0 1em 0;
+    padding: 0 1.5ex 0 2.5mm;
+    display: block;
+}
+
+#side-bar .sideBarText a {
+    text-decoration: underline;
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+
+#side-bar .sideBarText a:hover {
+    color: rgb( 0, 102, 204 );
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.lighterBackground {
+    color: inherit;
+    background-color: white;
+    width:200px;
+}
+
+/* ##### Main Copy ##### */
+
+#main-copy {
+    color: black;
+    background-color: white;
+    text-align: justify;
+    line-height: 1.5em;
+    margin: 0 0 0 20em;
+    padding: 0.5mm 5mm 5mm 5mm;
+    border-left: 1px solid rgb( 153, 153, 153 );
+}
+
+#main-copy p {
+    margin: 1em 1ex 2em 1ex;
+    padding: 0;
+}
+
+#main-copy a {
+    color: rgb( 0, 102, 204 );
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+#main-copy a:hover {
+    text-decoration: none;
+}
+
+#main-copy h1 {
+    color: white;
+    background-color: rgb( 100, 135, 220 );
+    font-size: 100%;
+    font-weight: bold;
+    margin: 3em 0 0 0;
+    padding: 0.5ex 0 0.5ex 1ex;
+}
+
+#main-copy .topOfPage {
+    color: white;
+    background-color: transparent;
+    font-size: 91%;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 2.5ex 1ex 0 0; /* For MSIE */
+    padding: 0;
+    float: right;
+}
+
+#main-copy > .topOfPage {
+    margin: 2.75ex 1ex 0 0; /* For fully standards-compliant user agents */
+}
+
+dl {
+    margin: 1em 1ex 2em 1ex;
+    padding: 0;
+}
+
+dt {
+    font-weight: bold;
+    margin: 0 0 0 0;
+    padding: 0;
+}
+
+dd {
+    margin: 0 0 2em 2em;
+    padding: 0;
+}
+
+/* ##### Body ##### */
+div.body {
+}
+
+/* div.body table {
+    border: 1px solid #666;
+    width: 80%;
+    margin: 20px 0 20px 0;
+}
+
+div.body th {
+    padding: 2px 4px 2px 4px;
+    text-align: center;
+    vertical-align: top;
+}
+
+div.body td {
+    padding: 2px 4px 2px 4px;
+    text-align: left;
+    vertical-align: top;
+}
+
+div.body thead tr {
+    background-color: #fc0;
+}
+
+div.body th a, th a:visited {
+    color: black;
+}
+
+div.body th a:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+div.body tr.odd {
+    background-color: #fff
+}
+
+div.body tr.even {
+    background-color: #fea
+}
+
+div.body table.its thead tr {
+    background-color: #69c;
+}
+
+div.body table.its tr.even {
+    background-color: #def;
+}
+
+div.body table.mars thead tr {
+    background-color: #9c9;
+}
+
+div.body table.mars tr.even {
+    background-color: #ccb;
+}
+
+div.body table.mars tr.odd {
+    background-color: #eec;
+}
+
+div.body table.simple thead tr {
+    background-color: #eee;
+}
+
+div.body table.simple tr.even {
+    background-color: #fff;
+}
+
+div.body table.simple {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+}
+
+div.body table.simple td, table.simple th {
+    border: 1px solid #ccc;
+}
+
+div.body table.nocol tbody td, table.nocol tbody th {
+    border-left: none;
+    border-right: none;
+}
+ */
+/* ##### Footer ##### */
+
+#footer {
+    color: white;
+    background-color: #B22222;
+    font-size: 91%;
+    margin: 0;
+    padding: 1em 2.5mm 2.5ex 2.5mm;
+    clear: both;
+}
+
+#footer .left {
+    line-height: 1.45em;
+    float: left;
+    clear: left;
+}
+
+#footer .right {
+    text-align: right;
+    line-height: 1.45em;
+}
+
+#footer a {
+    color: white;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+#footer a:hover {
+    text-decoration: none;
+}

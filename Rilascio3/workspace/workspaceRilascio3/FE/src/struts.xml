@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="false" />
+  	<constant name="struts.custom.i18n.resources" value="messageerr" />
+  	
+	<package name="default" extends="struts-default" namespace="/">
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+
+		<action name="controllaLoginAction" class="uiip.action.LoginAction">
+			<!-- <result name="success">eseguito.jsp</result> -->
+			<result name="templateComp" type="tiles">/menuCompleto.tiles</result>
+			<result name="templateGiorn" type="tiles">/menuGiornalista.tiles
+			</result>
+			<result name="templateAmm" type="tiles">/menuAmministratore.tiles
+			</result>
+			<result name="utenteCancellato" type="tiles">/utenteCancellato.tiles
+			</result>
+			<result name="error" type="tiles">/error.tiles</result>
+			<result name="input">homepage.jsp</result>
+<!-- 			<result name="input" type="tiles">/template.tiles</result>
+ -->			<!-- <result name="error" type="tiles">menuGiornalista</result> -->
+		</action>
+
+		<action name="InsertAction" class="uiip.action.InsertAction">
+			<result name="success" type="tiles">/eseguito.tiles</result>
+			<result name="error" type="tiles">/error.tiles</result>
+			<result name="UtenteGiaPresente" type="tiles">/UtenteGiaPresente.tiles</result>
+			<result name="UtenteCancellato" type="tiles">/inserimentoNonPossibile.tiles</result>
+			<result name="input" type="tiles">/inserimento.tiles</result>
+			<result name="InserimentoAccount" type="tiles">/InserimentoAccount.tiles</result>
+		</action>
+
+		<action name="OpenInsertAction" class="uiip.action.OpenInsertAction">
+			<result name="success" type="tiles">/inserimento.tiles</result>
+		</action>
+
+		<action name="OpenUpdateAction" class="uiip.action.OpenUpdateAction">
+			<result name="success" type="tiles">/modifica.tiles</result>	
+			<result name="error" type="tiles">/error.tiles</result>	
+			<result name="UtenteCancellato" type="tiles">/modificaNONpossibile.tiles</result>
+		</action>
+
+		<action name="OpenVisualizzaAction" class="uiip.action.OpenVisualizzaAction">
+			<result name="utenteCancellatoNoVisualizz" type="tiles">/utenteCancellatoNoVisualizz.tiles</result>
+			<result name="success" type="tiles">/visualizza.tiles</result>
+			<result name="error" type="tiles">/error.tiles</result> 
+		</action>
+
+		<action name="modificaAction" class="uiip.action.UpdateAction">
+			<result name="success" type="tiles">/modificaAccount.tiles</result>
+			<result name="error" type="tiles">/error.tiles</result>
+			<result name="input" type="tiles">/modifica.tiles</result>	
+		</action>
+
+		<action name="ListaAction" class="uiip.action.ListaAction">
+			<result name="success" type="tiles">/listaAccount.tiles</result>
+			<result name="error">/error.tiles</result>
+		</action>
+
+		<action name="DeleteAction" class="uiip.action.DeleteAction">
+			<result name="success" type="tiles">/cancellazioneAccount.tiles</result>
+			<result name="CancellaUtenteCompleto" type="tiles">/delete_uno.tiles</result>
+			<result name="CancellaGiornalista" type="tiles">/delete_due.tiles</result> 
+			<result name="NonPuoiCancellareAdmin" type="tiles">/delete_tre.tiles</result> 
+			<result name="AccountDisattivato" type="tiles">/delete_quattro.tiles</result> 
+			<result name="error" type="tiles">/error.tiles</result> 
+		</action>
+
+		<action name="aggiornaAction" class="uiip.action.aggiornaAction">
+			<result name="success" type="tiles">/eseguito.tiles</result>
+		</action>
+
+		<action name="LogoutAction" class="uiip.action.LogoutAction">
+			<result name="success">/homepage.jsp</result>
+		</action>
+
+		<action name="ListaNewsAction" class="uiip.action.news.ListaNewsAction">
+			<result name="success" type="tiles">/listaNotizie.tiles</result>
+			<result name="error" type="tiles">/noNotizie.tiles</result>
+			<result name="input" type="tiles">/listaNotizie.tiles</result>
+			<!-- <result name="error" type="tiles">menuGiornalista</result> -->
+		</action>
+
+		<action name="OpenInsertNewsAction" class="uiip.action.news.OpenInsertNewsAction">
+			<result name="success" type="tiles">/inserimentoNotizia.tiles</result>
+			<result name="error" type="tiles">/error.tiles</result>
+			<!-- <result name="error" type="tiles">menuGiornalista</result> -->
+		</action>
+		<action name="InsertNewsAction" class="uiip.action.news.InsertNewsAction">
+			<result name="success" type="tiles">/inserimentoNotiziaOK.tiles
+			</result>
+			<result name="error" type="tiles">/error.tiles</result>
+			<result name="input" type="tiles">/inserimentoNotizia.tiles</result>
+			<!-- <result name="error" type="tiles">menuGiornalista</result> -->
+		</action>
+		<action name="DeleteNewsAction" class="uiip.action.news.DeleteNewsAction">
+			<result name="success" type="tiles">/notiziaCancellata.tiles</result>
+			<result name="error" type="tiles">/modificaNONpossibile.tiles</result>
+			<!-- <result name="error" type="tiles">menuGiornalista</result> -->
+		</action>
+		<action name="OpenUpdateNewsAction" class="uiip.action.news.OpenUpdateNewsAction">
+			<result name="success" type="tiles">/modificaNotizia.tiles</result>
+			<result name="error" type="tiles">/modificaNONpossibile.tiles</result>
+		</action>
+		<action name="UpdateNewsAction" class="uiip.action.news.UpdateNewsAction">
+			<result name="success" type="tiles">/notiziaModificataOK.tiles
+			</result>
+			<result name="input" type="tiles">/modificaNotizia.tiles</result>
+			<result name="error" type="tiles">/error.tiles</result>
+		</action>
+		<action name="AnnullaModificheNotizia" class="uiip.action.news.AnnullaModificheNotizia">
+			<result name="success" type="tiles">/listaNotizie.tiles</result>
+			<result name="error" type="tiles">/error.tiles</result>
+		</action>
+		<action name="RilasciaNotizieAction" class="uiip.action.news.RilasciaNotizieAction">
+			<result name="success" type="redirectAction">
+				/listaNotizie.tiles
+				<param name="actionName">ListaNewsAction</param>
+			</result>
+			<!-- <result name="error" type="tiles">/error.tiles</result> -->
+		</action>
+		<action name="VisualizzaNewsAction" class="uiip.action.news.VisualizzaNewsAction">
+			<result name="success" type="tiles">/VisualizzaNotizia.tiles</result>
+			<result name="error" type="tiles">/error.tiles</result>
+		</action>
+		<action name="TrasmettiNewsAction" class="uiip.action.news.TrasmettiNewsAction">
+			<result name="success" type="tiles">/notiziaTrasmessa.tiles</result>
+			<result name="error" type="tiles">/error.tiles</result>
+		</action>
+		<action name="HomeAction" class="uiip.action.news.HomeAction">
+			<result name="success" type="tiles">/corpo.tiles</result>
+		</action>
+	</package>
+</struts>
