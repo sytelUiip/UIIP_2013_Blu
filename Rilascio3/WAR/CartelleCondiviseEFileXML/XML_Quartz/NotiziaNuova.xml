@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<Notizia>
-<!--Notizia ricevuta da un client esterno-->
-<Anagrafica Titolo="Notizia ricevuta" Sottotitolo="Prova notizia ricevuta" Autore="Prova notizia" DataCreazione="2012-12-12T00:00:00" />
-<Testo>Ciao tutto bene</Testo>
-</Notizia>
