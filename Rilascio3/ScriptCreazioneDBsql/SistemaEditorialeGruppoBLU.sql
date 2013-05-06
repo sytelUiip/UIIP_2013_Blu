@@ -136,11 +136,11 @@ begin
  raise_application_error(-20500,'Impossibile modificare username utente');
 end;
 /
-Insert into "GRUPPOBLU"."ACCOUNT_UTENTE" (NOME,COGNOME,USERNAME,PASSWORD_ACCOUNT,SIGLAREDAZIONE,SIGLAGIORNALISTA,STATO) values ('Annamaria','Spera','annamaria.spera@hotmail.it','annamaria','FR_DI_ADM','FR_DI','A');
-Insert into "GRUPPOBLU"."ACCOUNT_UTENTE" (NOME,COGNOME,USERNAME,PASSWORD_ACCOUNT,SIGLAREDAZIONE,SIGLAGIORNALISTA,STATO) values ('Antonio','Laurano','antonio.laurano@gmail.com','antonio','AN_LA_ADM','AN_LA','A');
-Insert into "GRUPPOBLU"."ACCOUNT_UTENTE" (NOME,COGNOME,USERNAME,PASSWORD_ACCOUNT,SIGLAREDAZIONE,SIGLAGIORNALISTA,STATO) values ('Francesca','Di Miceli','francesca.dimiceli@gmail.com','francesca','FR_DI_ADM','FR_DI','A');
-Insert into "GRUPPOBLU"."ACCOUNT_UTENTE" (NOME,COGNOME,USERNAME,PASSWORD_ACCOUNT,SIGLAREDAZIONE,SIGLAGIORNALISTA,STATO) values ('Francesco','Giancipoli','francesco.giancipoli@hotmail.it','francesco','FR_GI_ADM','FR_GI','A');
-Insert into "GRUPPOBLU"."ACCOUNT_UTENTE" (NOME,COGNOME,USERNAME,PASSWORD_ACCOUNT,SIGLAREDAZIONE,SIGLAGIORNALISTA,STATO) values ('Eugenio','Stromei','eugenio.stromei@gmail.com','eugenio','EU_ST_ADM','EU_ST','A');
+Insert into "GRUPPOBLU"."ACCOUNT_UTENTE" (NOME,COGNOME,USERNAME,PASSWORD_ACCOUNT,SIGLAREDAZIONE,SIGLAGIORNALISTA,STATO) values ('Annamaria','Spera','annamaria.spera@hotmail.it','d41d8cd98f00b204e9800998ecf8427e','FR_DI_ADM','FR_DI','A');
+Insert into "GRUPPOBLU"."ACCOUNT_UTENTE" (NOME,COGNOME,USERNAME,PASSWORD_ACCOUNT,SIGLAREDAZIONE,SIGLAGIORNALISTA,STATO) values ('Antonio','Laurano','antonio.laurano@gmail.com','4a181673429f0b6abbfd452f0f3b5950','AN_LA_ADM','AN_LA','A');
+Insert into "GRUPPOBLU"."ACCOUNT_UTENTE" (NOME,COGNOME,USERNAME,PASSWORD_ACCOUNT,SIGLAREDAZIONE,SIGLAGIORNALISTA,STATO) values ('Francesca','Di Miceli','francesca.dimiceli@gmail.com','3477402667742da39c8e93bf4f30b271','FR_DI_ADM','FR_DI','A');
+Insert into "GRUPPOBLU"."ACCOUNT_UTENTE" (NOME,COGNOME,USERNAME,PASSWORD_ACCOUNT,SIGLAREDAZIONE,SIGLAGIORNALISTA,STATO) values ('Francesco','Giancipoli','francesco.giancipoli@hotmail.it','0581938f0767a65b373cea80e905c25f','FR_GI_ADM','FR_GI','A');
+Insert into "GRUPPOBLU"."ACCOUNT_UTENTE" (NOME,COGNOME,USERNAME,PASSWORD_ACCOUNT,SIGLAREDAZIONE,SIGLAGIORNALISTA,STATO) values ('Eugenio','Stromei','eugenio.stromei@gmail.com','314e1391e7d4bc6ca63e70f04d5c3d10','EU_ST_ADM','EU_ST','A');
 
 Insert into "GRUPPOBLU"."GRUPPO" (ID_G,NOMEGRUPPO) values ('a','amministratore');
 Insert into "GRUPPOBLU"."GRUPPO" (ID_G,NOMEGRUPPO) values ('g','giornalista');
@@ -825,4 +825,99 @@ BEGIN
 END ALL_STATO_Q;
 /
  
+  CREATE OR REPLACE PROCEDURE "GRUPPOBLU"."FILTRO_SEACH_NOTIZIA_AUTORE" (
+o_cursor out SYS_REFCURSOR,
+P_MIN IN INTEGER,
+P_MAX IN INTEGER,
+s_autore in VARCHAR2
+) AS
+BEGIN
+open o_cursor FOR
+select * FROM 
+(SELECT e.*, ROWNUM rnum
+FROM
+(
+select id_n,titolo,autore,datacreazione,datatrasmissione,stato,lock_n,ultimodigitatore,sottotitolo,testo 
+FROM notizia where lower(autore) like lower('%'||s_autore||'%')   
+order by datacreazione DESC
+) e
+WHERE ROWNUM <=P_MAX)
+WHERE rnum >=P_MIN; 
+END FILTRO_SEACH_NOTIZIA_AUTORE;
+/
+ 
+  CREATE OR REPLACE PROCEDURE "GRUPPOBLU"."FILTRO_SEACH_NOTIZIA_TITOLO" (
+o_cursor out SYS_REFCURSOR,
+P_MIN IN INTEGER,
+P_MAX IN INTEGER,
+s_titolo in VARCHAR2
+) AS
+BEGIN
+OPEN o_cursor FOR
+SELECT * FROM
+(SELECT e.*, ROWNUM rnum
+FROM
+(
+  select id_n,titolo,autore,datacreazione,datatrasmissione,stato,lock_n,ultimodigitatore,sottotitolo,testo 
+  FROM notizia where lower(titolo) like lower('%'||s_titolo||'%')
+  order by datacreazione DESC
+  ) e
+  WHERE ROWNUM <=P_MAX)
+  WHERE rnum >=P_MIN; 
+END FILTRO_SEACH_NOTIZIA_TITOLO;
+/
+
+  CREATE OR REPLACE PROCEDURE "GRUPPOBLU"."FILTRO_SEACH_NOTIZIA_STATO" (
+o_cursor out SYS_REFCURSOR,
+P_MIN IN INTEGER,
+P_MAX IN INTEGER,
+s_stato in VARCHAR2
+) AS
+BEGIN
+  open o_cursor FOR
+  select * FROM 
+  (SELECT e.*, ROWNUM rnum
+  FROM
+  (
+  select id_n,titolo,autore,datacreazione,datatrasmissione,stato,lock_n,ultimodigitatore,sottotitolo,testo,ultimo_accesso
+  FROM notizia where lower(stato) like lower('%'||s_stato||'%')
+  order by datacreazione DESC
+  ) e
+  WHERE ROWNUM <=P_MAX)
+  WHERE rnum >=P_MIN; 
+END FILTRO_SEACH_NOTIZIA_STATO;
+/
+ 
+  CREATE OR REPLACE PROCEDURE "GRUPPOBLU"."GET_COUNT_FILTRO_TITOLO" 
+(O_CURSOR OUT SYS_REFCURSOR,
+s_titolo in varchar2
+)
+AS 
+BEGIN
+   open O_CURSOR for
+  select COUNT(*) from NOTIZIA where LOWER(TITOLO)=LOWER(S_TITOLO);
+END GET_COUNT_FILTRO_TITOLO;
+/
+
+  CREATE OR REPLACE PROCEDURE "GRUPPOBLU"."GET_COUNT_FILTRO_STATO" 
+(O_CURSOR out SYS_REFCURSOR,
+s_stato in varchar2
+)
+AS 
+BEGIN
+   open O_CURSOR for
+  select count(*) FROM notizia where lower(stato)=lower(s_stato);
+END GET_COUNT_FILTRO_STATO;
+/
+
+  CREATE OR REPLACE PROCEDURE "GRUPPOBLU"."GET_COUNT_FILTRO_AUTORE" 
+(O_CURSOR OUT SYS_REFCURSOR,
+s_autore in varchar2
+)
+AS 
+BEGIN
+   open O_CURSOR for
+  select COUNT(*) from NOTIZIA where LOWER(AUTORE)=LOWER(S_AUTORE);
+END GET_COUNT_FILTRO_AUTORE;
+/
 
